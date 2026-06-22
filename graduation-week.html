@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>2026 Toronto Graduation Extravaganza</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -70,11 +72,10 @@
       border: 2px solid #2a3a55;
       box-shadow: 0 8px 32px rgba(0,0,0,0.4);
     }
-    .map-wrapper iframe {
+    #map {
       width: 100%;
       height: 420px;
       display: block;
-      border: none;
     }
     .map-legend {
       display: flex;
@@ -305,14 +306,29 @@
   <div class="map-section">
     <h2>📍 The Neighbourhood</h2>
     <div class="map-wrapper">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m56!1m12!1m3!1d5773.2!2d-79.4530!3d43.6510!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m41!3e2!4m5!1s0x882b34f4b4b4b4b5%3A0x0!2s299+Indian+Rd%2C+Toronto%2C+ON!3m2!1d43.6558!2d-79.4548!4m5!1s0x882b34c9c9c9c9c9%3A0x0!2s30+Marmaduke+St%2C+Toronto%2C+ON!3m2!1d43.6535!2d-79.4478!4m5!1s0x882b34e1e1e1e1e1%3A0x0!2sFern+Avenue+Junior+and+Senior+Public+School%2C+Toronto%2C+ON!3m2!1d43.6482!2d-79.4502!4m5!1s0x882b34d0d0d0d0d0%3A0x0!2s209+Jameson+Ave%2C+Toronto%2C+ON!3m2!1d43.6443!2d-79.4478!4m5!1s0x882b34a0a0a0a0a0%3A0x0!2s1605+Queen+St+W%2C+Toronto%2C+ON!3m2!1d43.6440!2d-79.4380!4m5!1s0x882b34b0b0b0b0b0%3A0x0!2s77+Adelaide+St+W%2C+Toronto%2C+ON!3m2!1d43.6495!2d-79.3845!5e0!3m2!1sen!2sca!4v1719000000000!5m2!1sen!2sca"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        title="Graduation Week Map">
-      </iframe>
+      <div id="map"></div>
     </div>
+    <script>
+      const map = L.map('map').setView([43.6500, -79.4480], 14);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+      }).addTo(map);
+
+      const locations = [
+        { lat: 43.6558, lng: -79.4548, label: '🏠 Home Base', detail: '299 Indian Rd' },
+        { lat: 43.6535, lng: -79.4478, label: '🏫 Howard Jr PS', detail: '30 Marmaduke St — Hayden\'s Graduation' },
+        { lat: 43.6480, lng: -79.4505, label: '🏫 Fern Avenue PS', detail: 'Zach\'s Grad After-Party & Clap-Out' },
+        { lat: 43.6443, lng: -79.4470, label: '🏫 Parkdale Collegiate', detail: '209 Jameson Ave — Zach\'s & Adele\'s Graduation' },
+        { lat: 43.6442, lng: -79.4393, label: '🎉 Parkdale Hall', detail: '1605 Queen St W — Fern Grad Party' },
+        { lat: 43.6495, lng: -79.3845, label: '🥂 Cactus Club Cafe', detail: '77 Adelaide St W — Adele\'s Graduation Dinner' },
+      ];
+
+      locations.forEach(({ lat, lng, label, detail }) => {
+        L.marker([lat, lng])
+          .addTo(map)
+          .bindPopup(`<strong>${label}</strong><br>${detail}`);
+      });
+    </script>
     <div class="map-legend">
       <span>🏠 299 Indian Rd — Home Base</span>
       <span>🏫 Howard Jr PS — 30 Marmaduke St</span>
