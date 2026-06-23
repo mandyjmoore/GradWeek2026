@@ -4,70 +4,75 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>2026 Toronto Graduation Extravaganza</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: 'Georgia', serif;
-      background: #0f1623;
-      color: #e8dcc8;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #f8f9fb;
+      color: #1a1a2e;
       min-height: 100vh;
     }
 
     /* HERO */
     .hero {
-      background: linear-gradient(135deg, #0f1623 0%, #1a2340 50%, #0f1623 100%);
-      border-bottom: 2px solid #c9a84c;
+      background: linear-gradient(135deg, #1a1a2e 0%, #2d2d5e 50%, #1a1a2e 100%);
       padding: 3rem 2rem 2.5rem;
       text-align: center;
     }
     .hero h1 {
       font-size: clamp(1.8rem, 5vw, 3.2rem);
-      color: #c9a84c;
-      letter-spacing: 0.04em;
+      color: #ffffff;
+      font-weight: 700;
+      letter-spacing: -0.01em;
       margin-bottom: 0.5rem;
     }
     .hero .subtitle {
-      font-size: 1rem;
-      color: #a0b0c8;
+      font-size: 0.9rem;
+      color: #a8b4d8;
       letter-spacing: 0.12em;
       text-transform: uppercase;
+      font-weight: 500;
       margin-bottom: 1.5rem;
     }
     .grad-chips {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 0.75rem;
+      gap: 1.5rem;
     }
     .grad-chips .chip {
-      font-size: 1.15rem;
-      color: #f0e0b0;
-      letter-spacing: 0.08em;
-      padding: 0 0.5rem;
-      border-left: 2px solid #c9a84c;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #ffffff;
+      letter-spacing: 0.02em;
+      padding: 0 0.75rem;
+      border-left: 3px solid #7c8cf8;
       line-height: 1;
     }
 
     /* MAP */
     .map-section {
       max-width: 900px;
-      margin: 2rem auto;
+      margin: 2.5rem auto;
       padding: 0 1.5rem;
     }
     .map-section h2 {
-      color: #c9a84c;
-      font-size: 1.1rem;
-      letter-spacing: 0.1em;
+      color: #4a4a8a;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       margin-bottom: 0.75rem;
       text-align: center;
     }
     .map-wrapper {
-      border-radius: 12px;
+      border-radius: 14px;
       overflow: hidden;
-      border: 2px solid #2a3a55;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+      border: 1px solid #e2e5f0;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
     }
     .map-wrapper iframe {
       width: 100%;
@@ -83,12 +88,13 @@
       justify-content: center;
     }
     .map-legend span {
-      font-size: 0.8rem;
-      color: #a0b0c8;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid #2a3a55;
+      font-size: 0.78rem;
+      color: #5a6080;
+      background: #ffffff;
+      border: 1px solid #e2e5f0;
       border-radius: 6px;
       padding: 0.25rem 0.6rem;
+      font-weight: 500;
     }
 
     /* DAYS */
@@ -98,63 +104,66 @@
       padding: 0 1.5rem;
       display: flex;
       flex-direction: column;
-      gap: 2rem;
+      gap: 1.5rem;
     }
 
     .day-card {
-      background: #141e30;
+      background: #ffffff;
       border-radius: 14px;
-      border: 1px solid #2a3a55;
+      border: 1px solid #e2e5f0;
       overflow: hidden;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
     }
     .day-header {
       padding: 1.25rem 1.5rem;
       display: flex;
       align-items: flex-start;
       gap: 1rem;
-      border-bottom: 1px solid #2a3a55;
+      border-bottom: 1px solid #f0f2f8;
     }
     .day-header .day-icon {
-      font-size: 2rem;
+      font-size: 1.8rem;
       line-height: 1;
     }
     .day-header .day-info h2 {
-      font-size: 1.2rem;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.2rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.15rem;
     }
     .day-header .day-info .day-sub {
-      font-size: 0.85rem;
-      color: #7a8fa8;
+      font-size: 0.82rem;
+      color: #8a90b0;
+      font-weight: 400;
     }
 
     /* accent colors per day */
-    .day-tue .day-header { border-left: 4px solid #4a90d9; }
-    .day-tue .day-header h2 { color: #6ab0f5; }
-    .day-wed .day-header { border-left: 4px solid #e0824a; }
-    .day-wed .day-header h2 { color: #f0a060; }
-    .day-thu .day-header { border-left: 4px solid #4caf7a; }
-    .day-thu .day-header h2 { color: #70d09a; }
-    .day-fri .day-header { border-left: 4px solid #c060c0; }
-    .day-fri .day-header h2 { color: #e080e0; }
+    .day-tue .day-header { border-left: 4px solid #4f8ef7; background: #f5f8ff; }
+    .day-tue .day-header h2 { color: #2457c5; }
+    .day-wed .day-header { border-left: 4px solid #f97316; background: #fff8f5; }
+    .day-wed .day-header h2 { color: #c2500a; }
+    .day-thu .day-header { border-left: 4px solid #22c55e; background: #f5fff8; }
+    .day-thu .day-header h2 { color: #166534; }
+    .day-fri .day-header { border-left: 4px solid #a855f7; background: #fdf5ff; }
+    .day-fri .day-header h2 { color: #7e22ce; }
 
     .day-body { padding: 1.25rem 1.5rem; }
 
     .routine-note {
       font-size: 0.82rem;
-      color: #7a8fa8;
+      color: #8a90b0;
       font-style: italic;
       margin-bottom: 1rem;
-      padding-left: 0.5rem;
-      border-left: 2px solid #2a3a55;
+      padding-left: 0.75rem;
+      border-left: 2px solid #e2e5f0;
     }
 
     .section-label {
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      color: #7a8fa8;
+      color: #9098b8;
+      font-weight: 600;
       margin-bottom: 0.75rem;
       margin-top: 0.25rem;
     }
@@ -179,24 +188,25 @@
       flex-shrink: 0;
     }
     .tl-time {
-      font-size: 0.72rem;
-      color: #a0b0c8;
+      font-size: 0.68rem;
+      color: #9098b8;
       text-align: center;
       line-height: 1.2;
       white-space: nowrap;
       padding-top: 0.1rem;
+      font-weight: 500;
     }
     .tl-dot {
-      width: 10px;
-      height: 10px;
+      width: 9px;
+      height: 9px;
       border-radius: 50%;
-      background: #c9a84c;
+      background: #7c8cf8;
       flex-shrink: 0;
       margin-top: 0.3rem;
     }
     .tl-line {
       width: 2px;
-      background: #2a3a55;
+      background: #e8eaf5;
       flex: 1;
       min-height: 0.75rem;
     }
@@ -205,17 +215,18 @@
       flex: 1;
     }
     .tl-content .event-title {
-      font-size: 0.95rem;
-      color: #e8dcc8;
+      font-size: 0.92rem;
+      color: #1a1a2e;
       margin-bottom: 0.2rem;
+      font-weight: 500;
     }
     .tl-content .event-title.highlight {
-      color: #c9a84c;
-      font-weight: bold;
+      color: #4f46e5;
+      font-weight: 700;
     }
     .tl-content .event-detail {
-      font-size: 0.8rem;
-      color: #7a8fa8;
+      font-size: 0.78rem;
+      color: #8a90b0;
     }
     .tl-item:last-child .tl-line { display: none; }
 
@@ -230,16 +241,17 @@
       .split-panel { grid-template-columns: 1fr; }
     }
     .split-side {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid #2a3a55;
+      background: #f8f9fb;
+      border: 1px solid #e2e5f0;
       border-radius: 10px;
       padding: 0.9rem 1rem;
     }
     .split-side h4 {
-      font-size: 0.8rem;
+      font-size: 0.72rem;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      color: #c9a84c;
+      color: #4f46e5;
+      font-weight: 700;
       margin-bottom: 0.6rem;
     }
     .split-side ul {
@@ -250,7 +262,7 @@
     }
     .split-side ul li {
       font-size: 0.82rem;
-      color: #a0b0c8;
+      color: #5a6080;
       padding-left: 1rem;
       position: relative;
     }
@@ -258,32 +270,35 @@
       content: '•';
       position: absolute;
       left: 0;
-      color: #c9a84c;
+      color: #7c8cf8;
     }
 
     /* NOTE BOX */
     .note-box {
       margin-top: 0.75rem;
-      background: rgba(201, 168, 76, 0.08);
-      border: 1px solid rgba(201, 168, 76, 0.25);
+      background: #fefce8;
+      border: 1px solid #fde68a;
       border-radius: 8px;
       padding: 0.65rem 0.9rem;
       font-size: 0.8rem;
-      color: #c0b090;
+      color: #78580a;
     }
 
     /* FOOTER */
     footer {
       text-align: center;
       padding: 2.5rem 1.5rem;
-      border-top: 1px solid #2a3a55;
-      color: #c9a84c;
+      border-top: 1px solid #e2e5f0;
+      background: #ffffff;
+      color: #1a1a2e;
       font-size: 1.05rem;
-      letter-spacing: 0.03em;
+      font-weight: 600;
+      letter-spacing: 0.01em;
     }
     footer .tagline {
-      font-size: 0.8rem;
-      color: #7a8fa8;
+      font-size: 0.82rem;
+      color: #8a90b0;
+      font-weight: 400;
       margin-top: 0.4rem;
     }
   </style>
