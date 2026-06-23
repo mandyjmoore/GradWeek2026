@@ -92,7 +92,7 @@
       margin-top: 0.75rem;
       justify-content: center;
     }
-    .map-legend span {
+    .map-legend span, .map-link {
       font-size: 0.78rem;
       color: #5a6080;
       background: #ffffff;
@@ -100,6 +100,11 @@
       border-radius: 6px;
       padding: 0.25rem 0.6rem;
       font-weight: 500;
+      text-decoration: none;
+    }
+    .map-link:hover {
+      border-color: #4f46e5;
+      color: #4f46e5;
     }
 
     /* DAYS */
@@ -332,13 +337,12 @@
       </iframe>
     </div>
     <div class="map-legend">
-      <span>🏠 299 Indian Rd — Home Base</span>
-      <span>🏡 231 Indian Rd — Haynes AirBNB</span>
-      <span>🏫 Howard Jr PS — 30 Marmaduke St</span>
-
-      <span>🏫 Parkdale CI — 209 Jameson Ave</span>
-      <span>🎉 Parkdale Hall — 1605 Queen St W</span>
-      <span>🍽️ Cactus Club — 77 Adelaide St W</span>
+      <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=299+Indian+Rd,Toronto,ON" target="_blank">🏠 299 Indian Rd — Home Base</a>
+      <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=231+Indian+Rd,Toronto,ON" target="_blank">🏡 231 Indian Rd — Haynes AirBNB</a>
+      <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=30+Marmaduke+St,Toronto,ON" target="_blank">🏫 Howard Jr PS — 30 Marmaduke St</a>
+      <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=209+Jameson+Ave,Toronto,ON" target="_blank">🏫 Parkdale CI — 209 Jameson Ave</a>
+      <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=1605+Queen+St+W,Toronto,ON" target="_blank">🎉 Parkdale Hall — 1605 Queen St W</a>
+      <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=77+Adelaide+St+W,Toronto,ON" target="_blank">🍽️ Cactus Club — 77 Adelaide St W</a>
     </div>
   </div>
 
