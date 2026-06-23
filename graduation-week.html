@@ -51,6 +51,10 @@
       padding: 0 0.75rem;
       border-left: 3px solid #7c8cf8;
       line-height: 1;
+      text-decoration: none;
+    }
+    .grad-chips .chip:hover {
+      color: #c7d2fe;
     }
 
     /* MAP */
@@ -309,9 +313,9 @@
     <h1>2026 Toronto Graduation Extravaganza</h1>
     <p class="subtitle">Official Itinerary &nbsp;|&nbsp; June 23 – June 26</p>
     <div class="grad-chips">
-      <span class="chip">🎓 Zach</span>
-      <span class="chip">🎓 Hayden</span>
-      <span class="chip">🎓 Adele</span>
+      <a class="chip" href="#zach">🎓 Zach</a>
+      <a class="chip" href="#hayden">🎓 Hayden</a>
+      <a class="chip" href="#adele">🎓 Adele</a>
     </div>
   </div>
 
@@ -341,7 +345,7 @@
   <div class="days">
 
     <!-- TUESDAY -->
-    <div class="day-card day-tue">
+    <div class="day-card day-tue" id="zach">
       <div class="day-header">
         <div class="day-icon">🎓</div>
         <div class="day-info">
@@ -420,7 +424,7 @@
     </div>
 
     <!-- WEDNESDAY -->
-    <div class="day-card day-wed">
+    <div class="day-card day-wed" id="hayden">
       <div class="day-header">
         <div class="day-icon">🎓</div>
         <div class="day-info">
@@ -492,7 +496,7 @@
     </div>
 
     <!-- THURSDAY -->
-    <div class="day-card day-thu">
+    <div class="day-card day-thu" id="adele">
       <div class="day-header">
         <div class="day-icon">🌟</div>
         <div class="day-info">
