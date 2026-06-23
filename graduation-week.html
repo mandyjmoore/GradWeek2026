@@ -4,8 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>2026 Toronto Graduation Extravaganza</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -71,10 +69,11 @@
       border: 2px solid #2a3a55;
       box-shadow: 0 8px 32px rgba(0,0,0,0.4);
     }
-    #map {
+    .map-wrapper iframe {
       width: 100%;
       height: 420px;
       display: block;
+      border: none;
     }
     .map-legend {
       display: flex;
@@ -305,30 +304,13 @@
   <div class="map-section">
     <h2>📍 The Neighbourhood</h2>
     <div class="map-wrapper">
-      <div id="map"></div>
+      <iframe
+        src="https://www.google.com/maps/d/embed?mid=1hYVVOMIm0z0-2knIh4Vom-l7XiQ7qLs"
+        allowfullscreen=""
+        loading="lazy"
+        title="Graduation Week Map">
+      </iframe>
     </div>
-    <script>
-      const map = L.map('map').setView([43.6500, -79.4480], 14);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap contributors'
-      }).addTo(map);
-
-      const locations = [
-        { lat: 43.6558, lng: -79.4548, label: '🏠 Home Base', detail: '299 Indian Rd' },
-        { lat: 43.6548, lng: -79.4558, label: '🏡 Haynes AirBNB', detail: '231 Indian Rd' },
-        { lat: 43.6535, lng: -79.4478, label: '🏫 Howard Jr PS', detail: '30 Marmaduke St — Hayden\'s Graduation' },
-        { lat: 43.6480, lng: -79.4505, label: '🏫 Fern Avenue PS', detail: 'Zach\'s Grad After-Party & Clap-Out' },
-        { lat: 43.6443, lng: -79.4470, label: '🏫 Parkdale Collegiate', detail: '209 Jameson Ave — Zach\'s & Adele\'s Graduation' },
-        { lat: 43.6442, lng: -79.4393, label: '🎉 Parkdale Hall', detail: '1605 Queen St W — Fern Grad Party' },
-        { lat: 43.6495, lng: -79.3845, label: '🥂 Cactus Club Cafe', detail: '77 Adelaide St W — Adele\'s Graduation Dinner' },
-      ];
-
-      locations.forEach(({ lat, lng, label, detail }) => {
-        L.marker([lat, lng])
-          .addTo(map)
-          .bindPopup(`<strong>${label}</strong><br>${detail}`);
-      });
-    </script>
     <div class="map-legend">
       <span>🏠 299 Indian Rd — Home Base</span>
       <span>🏫 Howard Jr PS — 30 Marmaduke St</span>
