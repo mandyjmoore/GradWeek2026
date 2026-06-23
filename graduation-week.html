@@ -5,15 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>2026 Toronto Graduation Extravaganza</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'Inter', system-ui, sans-serif;
-      background: #f8f9fb;
+      background: #f3f4f8;
       color: #1a1a2e;
       min-height: 100vh;
+    }
+
+    /* ACCENT BAR */
+    .accent-bar {
+      height: 5px;
+      background: linear-gradient(90deg, #4f8ef7, #a855f7, #f97316, #22c55e, #4f8ef7);
+      background-size: 200% 100%;
+      animation: shimmer 6s linear infinite;
+    }
+    @keyframes shimmer {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 200% 0%; }
     }
 
     /* HERO */
@@ -22,30 +34,47 @@
       border-bottom: 1px solid #e2e5f0;
       padding: 3rem 2rem 2.5rem;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '🎓 ✨ 🎉 🎓 ✨ 🎉 🎓 ✨ 🎉 🎓 ✨ 🎉 🎓 ✨ 🎉';
+      position: absolute;
+      top: 0.5rem;
+      left: 0;
+      right: 0;
+      font-size: 1rem;
+      letter-spacing: 0.5rem;
+      opacity: 0.08;
+      white-space: nowrap;
+      overflow: hidden;
+      pointer-events: none;
     }
     .hero h1 {
-      font-size: clamp(1.8rem, 5vw, 3.2rem);
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2rem, 5vw, 3.4rem);
       color: #1a1a2e;
       font-weight: 700;
       letter-spacing: -0.01em;
       margin-bottom: 0.5rem;
+      line-height: 1.15;
     }
     .hero .subtitle {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: #6b7280;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       font-weight: 500;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
     }
     .grad-chips {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 1.5rem;
+      gap: 2rem;
     }
     .grad-chips .chip {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 600;
       color: #1a1a2e;
       letter-spacing: 0.02em;
@@ -53,6 +82,7 @@
       border-left: 3px solid #4f46e5;
       line-height: 1;
       text-decoration: none;
+      transition: color 0.15s;
     }
     .grad-chips .chip:hover {
       color: #4f46e5;
@@ -119,10 +149,15 @@
 
     .day-card {
       background: #ffffff;
-      border-radius: 14px;
+      border-radius: 16px;
       border: 1px solid #e2e5f0;
       overflow: hidden;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .day-card:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      transform: translateY(-2px);
     }
     .day-header {
       padding: 1.25rem 1.5rem;
@@ -297,24 +332,28 @@
     /* FOOTER */
     footer {
       text-align: center;
-      padding: 2.5rem 1.5rem;
+      padding: 3rem 1.5rem;
       border-top: 1px solid #e2e5f0;
       background: #ffffff;
       color: #1a1a2e;
-      font-size: 1.05rem;
-      font-weight: 600;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.2rem;
+      font-weight: 700;
       letter-spacing: 0.01em;
     }
     footer .tagline {
-      font-size: 0.82rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
       color: #8a90b0;
       font-weight: 400;
-      margin-top: 0.4rem;
+      margin-top: 0.5rem;
+      letter-spacing: 0.05em;
     }
   </style>
 </head>
 <body>
 
+  <div class="accent-bar"></div>
   <div class="hero">
     <h1>2026 Toronto Graduation Extravaganza</h1>
     <p class="subtitle">Official Itinerary &nbsp;|&nbsp; June 23 – June 26</p>
